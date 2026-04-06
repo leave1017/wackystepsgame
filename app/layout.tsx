@@ -63,7 +63,7 @@ export default function RootLayout({
         {children}
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-3QF8NP1Z97"
+          src="https://www.googletagmanager.com/gtag/js?id=G-P4B94TCE2X"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -71,7 +71,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-3QF8NP1Z97');
+            gtag('config', 'G-P4B94TCE2X');
           `}
         </Script>
         {/* Microsoft Clarity */}
