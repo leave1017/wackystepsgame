@@ -21,13 +21,6 @@ export const games: Record<string, Game> = {
     image: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker.webp",
     url: "/goo-goo-gaga-clicker",
   },
-  "cheese-chompers-3d": {
-    id: "cheese-chompers-3d",
-    title: "Cheese Chompers 3D",
-    description: "A hilarious free online knockout game! Control a goofy rat and battle it out in a chaotic arena to be the last rat standing.",
-    image: "/assets/cheese-chompers-3d/cheese-chompers-3d.png",
-    url: "/cheese-chompers-3d",
-  },
   "brainrot-clicker": {
     id: "brainrot-clicker",
     title: "Italian Brainrot Clicker",

@@ -8,7 +8,6 @@ const blogSlugs = [
 ];
 
 const gamePages = [
-  '/cheese-chompers-3d',
   '/brainrot-clicker',
   '/basketball-bros-unblocked',
   '/goo-goo-gaga-clicker',
