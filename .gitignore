@@ -36,8 +36,8 @@ next-env.d.ts
 
 .vercel
 
-# sitemap
-/public/sitemap*.xml
-public/robots.txt
+# Note: sitemap.xml is generated during build and must be tracked by git
+# public/sitemap*.xml
+# public/robots.txt
 # large game files - hosted externally
 /public/game/crazycattle3d/

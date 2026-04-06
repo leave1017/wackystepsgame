@@ -1,0 +1,61 @@
+# *
+User-agent: *
+Allow: /
+
+# GPTBot
+User-agent: GPTBot
+Disallow: /
+
+# ChatGPT-User
+User-agent: ChatGPT-User
+Disallow: /
+
+# OAI-SearchBot
+User-agent: OAI-SearchBot
+Disallow: /
+
+# Claude-Web
+User-agent: Claude-Web
+Disallow: /
+
+# Anthropic-AI
+User-agent: Anthropic-AI
+Disallow: /
+
+# ClaudeBot
+User-agent: ClaudeBot
+Disallow: /
+
+# PerplexityBot
+User-agent: PerplexityBot
+Disallow: /
+
+# DeepseekBot
+User-agent: DeepseekBot
+Disallow: /
+
+# cohere-ai
+User-agent: cohere-ai
+Disallow: /
+
+# YouBot
+User-agent: YouBot
+Disallow: /
+
+# GoogleOther
+User-agent: GoogleOther
+Disallow: /
+
+# DuckAssistBot
+User-agent: DuckAssistBot
+Disallow: /
+
+# Bytespider
+User-agent: Bytespider
+Disallow: /
+
+# Host
+Host: https://wackystepsgame.com
+
+# Sitemaps
+Sitemap: https://wackystepsgame.com/sitemap.xml
