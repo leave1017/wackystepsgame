@@ -32,14 +32,14 @@ export const games: Record<string, Game> = {
     id: "brainrot-clicker",
     title: "Italian Brainrot Clicker",
     description: "Dive into Italian Brainrot Clicker! Tap through meme madness in this addictive online clicker game. Instant play, no download!",
-    image: "/assets/brainrot-clicker/brainrot-clicker.jpg",
+    image: "/assets/brainrot-clicker/brainrot-clicker.webp",
     url: "/brainrot-clicker",
   },
   "basketball-bros-unblocked": {
     id: "basketball-bros-unblocked",
     title: "Basketball Bros Unblocked",
     description: "Experience exciting basketball action with unique characters. Play online for free, no download required!",
-    image: "/assets/basketball-bros-unblocked/basketball-bros-unblocked.png",
+    image: "/assets/basketball-bros-unblocked/basketball-bros-unblocked.webp",
     url: "/basketball-bros-unblocked",
   },
 };
