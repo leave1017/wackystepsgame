@@ -8,15 +8,9 @@ const blogSlugs = [
 ];
 
 const gamePages = [
-  '/crazy-cattle-3d',
-  '/crazy-cow-3d',
   '/cheese-chompers-3d',
   '/brainrot-clicker',
   '/basketball-bros-unblocked',
-  '/pokemon-gamma-emerald',
-  '/crazy-chicken-3d',
-  '/sprunki-incredibox',
-  '/futbol-libre',
   '/goo-goo-gaga-clicker',
 ];
 

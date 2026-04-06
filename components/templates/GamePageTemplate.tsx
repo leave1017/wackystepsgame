@@ -127,9 +127,14 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
           ))}
         </div>
 
-        {/* Game tags */}
+        {/* Full-width content sections */}
+        <Features content={gameConfig.content} />
+        <WhatIs content={gameConfig.content} />
+        <HowToPlay content={gameConfig.content} />
+
+        {/* Game tags - before FAQ */}
         {tags.length > 0 && (
-          <div className="flex flex-wrap gap-2 mb-8 -mt-8 lg:-mt-10">
+          <div className="flex flex-wrap gap-2 mb-8">
             {tags.map((tag) => (
               <span
                 key={tag}
@@ -141,10 +146,6 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
           </div>
         )}
 
-        {/* Full-width content sections */}
-        <Features content={gameConfig.content} />
-        <WhatIs content={gameConfig.content} />
-        <HowToPlay content={gameConfig.content} />
         <FAQ content={gameConfig.content} />
       </main>
 

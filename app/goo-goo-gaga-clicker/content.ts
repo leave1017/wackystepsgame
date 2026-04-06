@@ -43,7 +43,7 @@ export const gooGooGagaClickerContent = {
       "The game features a dynamic weather system that shakes up your strategy and a prestige mechanic that adds deep long-term progression. Each Ascension makes subsequent runs dramatically faster — letting you breeze through early content and reach new heights.\n\n" +
       "Play Goo Goo Gaga Clicker free directly in your browser — no download or login required. Works on desktop and mobile.",
     logo: {
-      src: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker-logo.png",
+      src: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker.webp",
       alt: "Goo Goo Gaga Clicker - Free Online Idle Clicker Game"
     }
   },
@@ -53,7 +53,7 @@ export const gooGooGagaClickerContent = {
     description: "Click the screen repeatedly to earn Goo Goo Gaga points. Each click generates currency you can spend on upgrades and unlockables. As you accumulate points, purchase passive income upgrades to keep earning even when you're not clicking.\n\n" +
       "Unlocking all 16 bizarre meme characters is the core goal. Each character has a unique unlock cost and grants bonus multipliers to your click power and passive earnings. Pay attention to the weather system — different weather conditions affect your earnings rate.\n\n" +
       "The Ascend mechanic is the advanced layer of the game. Once you've unlocked a significant number of characters, Ascend to reset your progress in exchange for permanent prestige multipliers. Each Ascension makes subsequent runs dramatically faster.",
-    image: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker-logo.png",
+    image: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker-how-to.webp",
     imageAlt: "Goo Goo Gaga Clicker Game Guide - How to Play"
   },
 
