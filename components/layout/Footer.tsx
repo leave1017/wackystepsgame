@@ -139,7 +139,7 @@ export function Footer() {
             {/* Links Line */}
             {(() => {
               const allLegalLinks = content.footer.legal.links;
-              const desiredOrder = ["About Us", "Privacy Policy", "Terms of Service", "Contact Us"];
+              const desiredOrder = ["About Us", "Privacy Policy", "Terms of Service", "Contact Us", "DMCA"];
               const orderedLinks = desiredOrder
                 .map(text => allLegalLinks.find(link => link.text === text))
                 .filter(link => link !== undefined) as { text: string; href: string }[];

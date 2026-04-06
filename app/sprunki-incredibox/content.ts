@@ -3,6 +3,7 @@ import { content as globalContent } from "@/config/content";
 export const sprunkiIncrediboxContent = {
   // 基础内容继承自全局配置
   ...globalContent,
+  tags: ["Music", "Creative", "Casual"],
 
   // 游戏区域配置
   gameSection: {

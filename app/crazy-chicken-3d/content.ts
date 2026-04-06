@@ -3,6 +3,7 @@ import { content as globalContent } from "@/config/content";
 export const crazyChickenContent = {
   // 基础内容继承自全局配置
   ...globalContent,
+  tags: ["Action", "Physics", "3D", "Casual"],
 
   // 游戏区域配置
   gameSection: {

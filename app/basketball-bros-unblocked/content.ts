@@ -3,6 +3,7 @@ import { content as globalContent } from "@/config/content";
 export const basketballBrosUnblockedContent = {
   // 基础内容继承自全局配置
   ...globalContent,
+  tags: ["Sports", "Action", "Multiplayer"],
 
   // 游戏区域配置
   gameSection: {

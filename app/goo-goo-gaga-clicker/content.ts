@@ -2,6 +2,7 @@ import { content as globalContent } from "@/config/content";
 
 export const gooGooGagaClickerContent = {
   ...globalContent,
+  tags: ["Clicker", "Idle", "Casual", "Meme"],
 
   gameSection: {
     ...globalContent.gameSection,

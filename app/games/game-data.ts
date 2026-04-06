@@ -7,6 +7,13 @@ export interface Game {
 }
 
 export const games: Record<string, Game> = {
+  "wacky-steps": {
+    id: "wacky-steps",
+    title: "Wacky Steps",
+    description: "Play Wacky Steps free online – a ragdoll walking game where you avoid cracks, dodge obstacles, and walk as far as you can!",
+    image: "/assets/wacky-steps/wacky-steps.webp",
+    url: "/",
+  },
   "goo-goo-gaga-clicker": {
     id: "goo-goo-gaga-clicker",
     title: "Goo Goo Gaga Clicker",

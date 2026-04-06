@@ -2,6 +2,7 @@ import { content as globalContent } from "@/config/content";
 
 export const pokemonGammaEmeraldContent = {
   ...globalContent,
+  tags: ["RPG", "Adventure", "Puzzle"],
 
   gameSection: {
     ...globalContent.gameSection,

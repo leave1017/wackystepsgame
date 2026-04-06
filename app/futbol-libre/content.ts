@@ -3,6 +3,7 @@ import { content as globalContent } from "@/config/content";
 export const futbolLibreContent = {
   // 基础内容继承自全局配置
   ...globalContent,
+  tags: ["Sports", "Football", "Streaming"],
 
   // 游戏区域配置
   gameSection: {

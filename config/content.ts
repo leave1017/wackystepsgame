@@ -60,7 +60,8 @@ export const content = {
         { text: "About Us", href: "/about" },
         { text: "Contact Us", href: "/contact" },
         { text: "Privacy Policy", href: "/privacy-policy" },
-        { text: "Terms of Service", href: "/terms-of-service" }
+        { text: "Terms of Service", href: "/terms-of-service" },
+        { text: "DMCA", href: "/dmca" }
       ]
     },
     copyright: {
@@ -74,6 +75,7 @@ export const content = {
     initialRating: 4.7,
     initialVotes: 187
   },
+  tags: ["Skill", "Action", "Physics", "Ragdoll", "Singleplayer"],
   gameSection: {
     title: "Wacky Steps",
     game: {

@@ -2,6 +2,7 @@ import { content as globalContent } from "@/config/content";
 
 export const crazyCattle3DContent = {
   ...globalContent,
+  tags: ["Action", "Physics", "3D", "Multiplayer"],
 
   gameSection: {
     ...globalContent.gameSection,

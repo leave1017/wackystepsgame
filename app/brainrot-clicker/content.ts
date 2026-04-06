@@ -3,6 +3,7 @@ import { content as globalContent } from "@/config/content";
 export const brainrotClickerContent = {
   // 基础内容继承自全局配置
   ...globalContent,
+  tags: ["Clicker", "Idle", "Casual", "Meme"],
 
   // 游戏区域配置
   gameSection: {
