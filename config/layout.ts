@@ -20,11 +20,11 @@ export const layout = {
   footer: {
     isVisible: true,
     sections: {
-      about: true,
-      quickLinks: true,
-      social: true,
+      about: false,
+      quickLinks: false,
+      social: false,
       legal: true,
-      games: true,  // 添加 games section
+      games: false,
     }
   },
   whatIs: {
