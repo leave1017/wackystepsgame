@@ -8,9 +8,9 @@ export const crazyCattle3DContent = {
     ...globalContent.gameSection,
     title: "Crazy Cattle 3D",
     game: {
-      url: '/crazy-cattle-3d.embed',
+      url: 'https://azgames.io/crazy-cattle-3d.embed',
       title: "crazycattle3d",
-      externalUrl: '/game/crazycattle3d/index.html'
+      externalUrl: 'https://azgames.io/crazy-cattle-3d.embed'
     },
     gameHeight: "h-[70vh] min-h-[540px]",
   },
