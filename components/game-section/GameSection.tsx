@@ -155,59 +155,39 @@ function ShareModal({ gameTitle, onClose }: { gameTitle: string; onClose: () => 
   );
 }
 
-// ── Star Rating Display (left side of toolbar) ───────────────────────────────
-function StarRating({ rating }: { rating: number }) {
+// ── Interactive Star Rating (left side of toolbar) ───────────────────────────
+function InteractiveStarRating({
+  displayRating,
+  onRate,
+}: {
+  displayRating: number;
+  onRate: (n: number) => void;
+}) {
+  const [hovered, setHovered] = useState(0);
+  const active = hovered || displayRating;
+
   return (
-    <div className="flex items-center gap-1">
-      {[1, 2, 3, 4, 5].map(star => {
-        const filled = rating >= star;
-        const half = !filled && rating >= star - 0.5;
-        return (
-          <svg key={star} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
-            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
-            stroke="#FBBF24"
-            fill={filled ? "#FBBF24" : half ? "url(#half)" : "none"}
+    <div
+      className="flex items-center gap-0.5 cursor-pointer"
+      onMouseLeave={() => setHovered(0)}
+    >
+      {[1, 2, 3, 4, 5].map(star => (
+        <button
+          key={star}
+          onMouseEnter={() => setHovered(star)}
+          onClick={() => onRate(star)}
+          className="focus:outline-none transition-transform hover:scale-125 p-0.5"
+          aria-label={`Rate ${star} star`}
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+            stroke="#FBBF24" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+            fill={star <= active ? "#FBBF24" : "none"}
           >
-            {half && (
-              <defs>
-                <linearGradient id="half">
-                  <stop offset="50%" stopColor="#FBBF24"/>
-                  <stop offset="50%" stopColor="none" stopOpacity="0"/>
-                </linearGradient>
-              </defs>
-            )}
             <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
           </svg>
-        );
-      })}
-      <span className="text-white/70 text-xs ml-0.5">{rating.toFixed(1)}</span>
-    </div>
-  );
-}
-
-// ── Rate Popup ────────────────────────────────────────────────────────────────
-function RatePopup({ currentRating, onRate }: { currentRating: number; onRate: (n: number) => void }) {
-  const [hovered, setHovered] = useState(0);
-  return (
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-gray-900 rounded-xl p-3 z-50 shadow-xl min-w-max">
-      <p className="text-white text-[11px] text-center mb-2 font-medium">Rate this game</p>
-      <div className="flex gap-1">
-        {[1, 2, 3, 4, 5].map(star => (
-          <button
-            key={star}
-            onMouseEnter={() => setHovered(star)}
-            onMouseLeave={() => setHovered(0)}
-            onClick={() => onRate(star)}
-            className="text-2xl leading-none transition-transform hover:scale-125 focus:outline-none"
-          >
-            <span className={star <= (hovered || currentRating) ? 'text-yellow-400' : 'text-gray-500'}>
-              ★
-            </span>
-          </button>
-        ))}
-      </div>
-      <div className="w-0 h-0 border-l-[5px] border-r-[5px] border-t-[5px]
-                      border-l-transparent border-r-transparent border-t-gray-900 mx-auto mt-1" />
+        </button>
+      ))}
+      <span className="text-white/60 text-xs ml-1 w-6">{displayRating.toFixed(1)}</span>
     </div>
   );
 }
@@ -222,7 +202,6 @@ export function GameSection({
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState<number>(content.rating.initialVotes);
   const [showShare, setShowShare] = useState(false);
-  const [showRate, setShowRate] = useState(false);
   const [userRating, setUserRating] = useState<number>(0);
   const [isFavorited, setIsFavorited] = useState(false);
 
@@ -239,14 +218,6 @@ export function GameSection({
     const favorites: string[] = JSON.parse(localStorage.getItem('wackysteps_favorites') || '[]');
     setIsFavorited(favorites.includes(gameId));
   }, [gameId]);
-
-  // Close rate popup on outside click
-  useEffect(() => {
-    if (!showRate) return;
-    const handler = () => setShowRate(false);
-    document.addEventListener('click', handler);
-    return () => document.removeEventListener('click', handler);
-  }, [showRate]);
 
   // Exit theater mode on Escape
   useEffect(() => {
@@ -338,36 +309,17 @@ export function GameSection({
       <div className="flex items-center justify-between w-full max-w-5xl mx-auto mb-16
                       bg-gray-800 text-white rounded-b-lg px-3 py-2 shadow-md">
 
-        {/* Left: Game title + Star rating */}
+        {/* Left: Game title + Interactive star rating */}
         <div className="flex items-center gap-2 min-w-0">
-          <span className="text-sm font-bold text-white truncate max-w-[180px]">{gameTitle}</span>
-          <StarRating rating={userRating > 0 ? userRating : content.rating.initialRating} />
+          <span className="text-sm font-bold text-white truncate max-w-[160px]">{gameTitle}</span>
+          <InteractiveStarRating
+            displayRating={userRating > 0 ? userRating : content.rating.initialRating}
+            onRate={handleRate}
+          />
         </div>
 
         {/* Right: icon-only buttons (text shown via tooltip on hover) */}
         <div className="flex items-center gap-0.5">
-
-          {/* Rate */}
-          <div className="relative" onClick={e => e.stopPropagation()}>
-            <Tooltip label={userRating > 0 ? `Your rating: ${userRating}/5` : "Rate game"}>
-              <button
-                onClick={() => setShowRate(p => !p)}
-                className={cn(
-                  "p-2 rounded-full transition-colors",
-                  userRating > 0
-                    ? "text-yellow-300 bg-yellow-500/20 hover:bg-yellow-500/30"
-                    : "text-white/70 hover:bg-white/20 hover:text-white"
-                )}
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                  fill={userRating > 0 ? "currentColor" : "none"}
-                  stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                </svg>
-              </button>
-            </Tooltip>
-            {showRate && <RatePopup currentRating={userRating} onRate={handleRate} />}
-          </div>
 
           {/* Favorites */}
           <Tooltip label={isFavorited ? "Remove from favorites" : "Add to favorites"}>
