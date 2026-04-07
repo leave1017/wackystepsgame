@@ -155,6 +155,36 @@ function ShareModal({ gameTitle, onClose }: { gameTitle: string; onClose: () => 
   );
 }
 
+// ── Star Rating Display (left side of toolbar) ───────────────────────────────
+function StarRating({ rating }: { rating: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      {[1, 2, 3, 4, 5].map(star => {
+        const filled = rating >= star;
+        const half = !filled && rating >= star - 0.5;
+        return (
+          <svg key={star} xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+            strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"
+            stroke="#FBBF24"
+            fill={filled ? "#FBBF24" : half ? "url(#half)" : "none"}
+          >
+            {half && (
+              <defs>
+                <linearGradient id="half">
+                  <stop offset="50%" stopColor="#FBBF24"/>
+                  <stop offset="50%" stopColor="none" stopOpacity="0"/>
+                </linearGradient>
+              </defs>
+            )}
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        );
+      })}
+      <span className="text-white/70 text-xs ml-0.5">{rating.toFixed(1)}</span>
+    </div>
+  );
+}
+
 // ── Rate Popup ────────────────────────────────────────────────────────────────
 function RatePopup({ currentRating, onRate }: { currentRating: number; onRate: (n: number) => void }) {
   const [hovered, setHovered] = useState(0);
@@ -308,28 +338,13 @@ export function GameSection({
       <div className="flex items-center justify-between w-full max-w-5xl mx-auto mb-16
                       bg-gray-800 text-white rounded-b-lg px-3 py-2 shadow-md">
 
-        {/* Left: Like with count */}
-        <Tooltip label={liked ? "Unlike" : "Like"}>
-          <button
-            onClick={handleLike}
-            className={cn(
-              "flex items-center gap-1.5 text-xs px-3 py-1.5 rounded-full transition-colors",
-              liked
-                ? "text-blue-300 bg-blue-500/30 hover:bg-blue-500/40"
-                : "text-white/80 hover:bg-white/20"
-            )}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
-              fill={liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"
-              strokeLinecap="round" strokeLinejoin="round">
-              <path d="M7 10v12"/>
-              <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>
-            </svg>
-            <span>{likeCount}</span>
-          </button>
-        </Tooltip>
+        {/* Left: Game title + Star rating */}
+        <div className="flex items-center gap-2 min-w-0">
+          <span className="text-sm font-bold text-white truncate max-w-[180px]">{gameTitle}</span>
+          <StarRating rating={userRating > 0 ? userRating : content.rating.initialRating} />
+        </div>
 
-        {/* Right: all action buttons */}
+        {/* Right: icon-only buttons (text shown via tooltip on hover) */}
         <div className="flex items-center gap-0.5">
 
           {/* Rate */}
@@ -338,18 +353,17 @@ export function GameSection({
               <button
                 onClick={() => setShowRate(p => !p)}
                 className={cn(
-                  "flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full transition-colors",
+                  "p-2 rounded-full transition-colors",
                   userRating > 0
                     ? "text-yellow-300 bg-yellow-500/20 hover:bg-yellow-500/30"
-                    : "text-white/80 hover:bg-white/20"
+                    : "text-white/70 hover:bg-white/20 hover:text-white"
                 )}
               >
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                   fill={userRating > 0 ? "currentColor" : "none"}
                   stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
                 </svg>
-                <span>{userRating > 0 ? `${userRating}/5` : "Rate"}</span>
               </button>
             </Tooltip>
             {showRate && <RatePopup currentRating={userRating} onRate={handleRate} />}
@@ -360,18 +374,17 @@ export function GameSection({
             <button
               onClick={handleFavorite}
               className={cn(
-                "flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full transition-colors",
+                "p-2 rounded-full transition-colors",
                 isFavorited
                   ? "text-red-400 bg-red-500/20 hover:bg-red-500/30"
-                  : "text-white/80 hover:bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               )}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill={isFavorited ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"
                 strokeLinecap="round" strokeLinejoin="round">
                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
               </svg>
-              <span>{isFavorited ? "Saved" : "Favorite"}</span>
             </button>
           </Tooltip>
 
@@ -379,15 +392,14 @@ export function GameSection({
           <Tooltip label="Share game">
             <button
               onClick={() => setShowShare(true)}
-              className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full hover:bg-white/20 text-white/80 transition-colors"
+              className="p-2 rounded-full text-white/70 hover:bg-white/20 hover:text-white transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
                 <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
                 <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
               </svg>
-              <span>Share</span>
             </button>
           </Tooltip>
 
@@ -395,16 +407,15 @@ export function GameSection({
           <Tooltip label="Reload game">
             <button
               onClick={handleReload}
-              className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full hover:bg-white/20 text-white/80 transition-colors"
+              className="p-2 rounded-full text-white/70 hover:bg-white/20 hover:text-white transition-colors"
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M21 2v6h-6"/>
                 <path d="M3 12a9 9 0 0 1 15-6.7L21 8"/>
                 <path d="M3 22v-6h6"/>
                 <path d="M21 12a9 9 0 0 1-15 6.7L3 16"/>
               </svg>
-              <span>Reload</span>
             </button>
           </Tooltip>
 
@@ -413,18 +424,17 @@ export function GameSection({
             <button
               onClick={handleTheater}
               className={cn(
-                "flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full transition-colors",
+                "p-2 rounded-full transition-colors",
                 theaterMode
                   ? "text-yellow-300 bg-yellow-500/20 hover:bg-yellow-500/30"
-                  : "text-white/80 hover:bg-white/20"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
               )}
             >
-              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                 fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                 <rect x="2" y="3" width="20" height="14" rx="2"/>
                 <path d="M8 21h8M12 17v4"/>
               </svg>
-              <span>Theater</span>
             </button>
           </Tooltip>
 
@@ -432,22 +442,45 @@ export function GameSection({
           <Tooltip label={isFullscreen ? "Exit fullscreen" : "Fullscreen"}>
             <button
               onClick={toggleFullscreen}
-              className="flex items-center gap-1 text-xs px-2.5 py-1.5 rounded-full hover:bg-white/20 text-white/80 transition-colors"
+              className="p-2 rounded-full text-white/70 hover:bg-white/20 hover:text-white transition-colors"
             >
               {isFullscreen ? (
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                   fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/>
                   <path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/>
                 </svg>
               ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                   fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/>
                   <path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/>
                 </svg>
               )}
-              <span>{isFullscreen ? "Exit" : "Fullscreen"}</span>
+            </button>
+          </Tooltip>
+
+          {/* Divider */}
+          <div className="w-px h-5 bg-white/20 mx-1" />
+
+          {/* Like — rightmost */}
+          <Tooltip label={liked ? "Unlike" : "Like"}>
+            <button
+              onClick={handleLike}
+              className={cn(
+                "flex items-center gap-1.5 text-xs px-2.5 py-1.5 rounded-full transition-colors",
+                liked
+                  ? "text-blue-300 bg-blue-500/30 hover:bg-blue-500/40"
+                  : "text-white/70 hover:bg-white/20 hover:text-white"
+              )}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                fill={liked ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2"
+                strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 10v12"/>
+                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z"/>
+              </svg>
+              <span>{likeCount}</span>
             </button>
           </Tooltip>
 
