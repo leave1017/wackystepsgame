@@ -35,6 +35,13 @@ export const games: Record<string, Game> = {
     image: "/assets/basketball-bros-unblocked/basketball-bros-unblocked.webp",
     url: "/basketball-bros-unblocked",
   },
+  "horse-magnifier": {
+    id: "horse-magnifier",
+    title: "Horse Magnifier",
+    description: "Zoom into a horse and uncover surreal hidden details in this quirky free indie exploration game. No download needed!",
+    image: "/assets/horse-magnifier/horse-magnifier.webp",
+    url: "/horse-magnifier",
+  },
 };
 
 // 获取其他游戏列表
