@@ -44,7 +44,7 @@ export default function GooGooGagaClickerPage() {
   const graphSchema = {
     "@context": "https://schema.org",
     "@graph": [
-      generateGameSchema(gameConfig.metadata),
+      generateGameSchema({ ...gameConfig.metadata, ratingValue: 4.8, ratingCount: 203 }),
       generateFAQSchema(gooGooGagaClickerContent.faq.items),
       generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url),
       generateHowToSchema(gooGooGagaClickerContent.howToPlay, gameConfig.metadata.url),

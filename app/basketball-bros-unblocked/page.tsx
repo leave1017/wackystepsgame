@@ -45,7 +45,7 @@ export default function BasketballBrosUnblockedPage() {
   const graphSchema = {
     "@context": "https://schema.org",
     "@graph": [
-      generateGameSchema(gameConfig.metadata),
+      generateGameSchema({ ...gameConfig.metadata, ratingValue: 4.7, ratingCount: 187 }),
       generateFAQSchema(basketballBrosUnblockedContent.faq.items),
       generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url),
       generateHowToSchema(basketballBrosUnblockedContent.howToPlay, gameConfig.metadata.url),

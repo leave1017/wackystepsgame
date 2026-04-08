@@ -4,6 +4,8 @@ export const generateGameSchema = (game: {
   title: string;
   description: string;
   url: string;
+  ratingValue?: number;
+  ratingCount?: number;
 }) => {
   return {
     "@context": "https://schema.org",
@@ -20,7 +22,16 @@ export const generateGameSchema = (game: {
       "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
-    }
+    },
+    ...(game.ratingValue != null && game.ratingCount != null ? {
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": game.ratingValue,
+        "ratingCount": game.ratingCount,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    } : {})
   };
 };
 

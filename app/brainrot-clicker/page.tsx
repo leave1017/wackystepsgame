@@ -45,7 +45,7 @@ export default function BrainrotClickerPage() {
   const graphSchema = {
     "@context": "https://schema.org",
     "@graph": [
-      generateGameSchema(gameConfig.metadata),
+      generateGameSchema({ ...gameConfig.metadata, ratingValue: 4.7, ratingCount: 187 }),
       generateFAQSchema(brainrotClickerContent.faq.items),
       generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url),
       generateHowToSchema(brainrotClickerContent.howToPlay, gameConfig.metadata.url),
