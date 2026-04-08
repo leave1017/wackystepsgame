@@ -248,7 +248,6 @@ export function GameSection({
   const handleRate = (rating: number) => {
     setUserRating(rating);
     localStorage.setItem(`wackysteps_rating_${gameId}`, String(rating));
-    setShowRate(false);
   };
 
   const handleFavorite = () => {
