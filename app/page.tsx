@@ -10,22 +10,21 @@ export const metadata = {
 };
 
 export default function Page() {
-  const faqSchema = generateFAQSchema(content.faq.items);
+  const graphSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { ...organizationSchema, "@context": undefined },
+      { ...websiteSchema, "@context": undefined },
+      { ...generateFAQSchema(content.faq.items), "@context": undefined },
+    ].map(({ "@context": _, ...rest }) => rest),
+  };
 
   return (
     <>
       <HomeTemplate />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }}
       />
     </>
   );

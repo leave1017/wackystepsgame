@@ -42,13 +42,20 @@ const gameConfig = {
 };
 
 export default function BasketballBrosUnblockedPage() {
+  const graphSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateGameSchema(gameConfig.metadata),
+      generateFAQSchema(basketballBrosUnblockedContent.faq.items),
+      generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url),
+      generateHowToSchema(basketballBrosUnblockedContent.howToPlay, gameConfig.metadata.url),
+    ].map(({ "@context": _, ...rest }: any) => rest),
+  };
+
   return (
     <>
       <GamePageTemplate gameConfig={gameConfig} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateGameSchema(gameConfig.metadata)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(basketballBrosUnblockedContent.faq.items)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateHowToSchema(basketballBrosUnblockedContent.howToPlay, gameConfig.metadata.url)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }} />
     </>
   );
 }

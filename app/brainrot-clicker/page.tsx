@@ -42,13 +42,20 @@ const gameConfig = {
 };
 
 export default function BrainrotClickerPage() {
+  const graphSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      generateGameSchema(gameConfig.metadata),
+      generateFAQSchema(brainrotClickerContent.faq.items),
+      generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url),
+      generateHowToSchema(brainrotClickerContent.howToPlay, gameConfig.metadata.url),
+    ].map(({ "@context": _, ...rest }: any) => rest),
+  };
+
   return (
     <>
       <GamePageTemplate gameConfig={gameConfig} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateGameSchema(gameConfig.metadata)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateFAQSchema(brainrotClickerContent.faq.items)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateBreadcrumbSchema(gameConfig.metadata.title, gameConfig.metadata.url)) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(generateHowToSchema(brainrotClickerContent.howToPlay, gameConfig.metadata.url)) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graphSchema) }} />
     </>
   );
 }
