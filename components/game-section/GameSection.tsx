@@ -198,6 +198,9 @@ export function GameSection({
   theaterMode = false,
   onTheaterModeChange,
 }: GameSectionProps) {
+  const coverImage = (content.gameSection as any).coverImage as string | undefined;
+  const logoImage = (content.gameSection as any).logoImage as string | undefined;
+  const [isStarted, setIsStarted] = useState(!coverImage); // auto-start if no cover
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [liked, setLiked] = useState(false);
   const [likeCount, setLikeCount] = useState<number>(content.rating.initialVotes);
@@ -292,15 +295,40 @@ export function GameSection({
           style={{ top: '64px' }}
         >
           {/* iframe fills all space above toolbar */}
-          <div ref={containerRef} className="flex-1 w-full overflow-hidden">
-            <iframe
-              ref={iframeRef}
-              src={content.gameSection.game.url}
-              className="w-full h-full border-0"
-              allow="fullscreen"
-              title={content.gameSection.game.title}
-              scrolling="no"
-            />
+          <div ref={containerRef} className="flex-1 w-full overflow-hidden relative">
+            {isStarted ? (
+              <iframe
+                ref={iframeRef}
+                src={content.gameSection.game.url}
+                className="w-full h-full border-0"
+                allow="fullscreen"
+                title={content.gameSection.game.title}
+                scrolling="no"
+              />
+            ) : (
+              <div
+                className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer overflow-hidden"
+                onClick={() => setIsStarted(true)}
+              >
+                {coverImage && (
+                  <img src={coverImage} alt="" aria-hidden="true"
+                    className="absolute inset-0 w-full h-full object-cover scale-110 blur-sm brightness-50" />
+                )}
+                <div className="relative flex flex-col items-center gap-5 z-10 select-none">
+                  {logoImage && (
+                    <img src={logoImage} alt={gameTitle}
+                      className="w-36 h-36 rounded-2xl shadow-2xl object-cover border-2 border-white/20" />
+                  )}
+                  <button
+                    className="flex items-center gap-2.5 bg-yellow-400 hover:bg-yellow-300 active:scale-95 text-gray-900 font-bold text-lg px-8 py-3 rounded-full shadow-xl transition-all duration-150"
+                    onClick={() => setIsStarted(true)}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Play Now
+                  </button>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Toolbar pinned at bottom */}
@@ -380,14 +408,54 @@ export function GameSection({
           theme.gameSection.colors.container,
         )}
       >
-        <iframe
-          ref={iframeRef}
-          src={content.gameSection.game.url}
-          className="w-full h-full border-0"
-          allow="fullscreen"
-          title={content.gameSection.game.title}
-          scrolling="no"
-        />
+        {isStarted ? (
+          <iframe
+            ref={iframeRef}
+            src={content.gameSection.game.url}
+            className="w-full h-full border-0"
+            allow="fullscreen"
+            title={content.gameSection.game.title}
+            scrolling="no"
+          />
+        ) : (
+          /* Cover overlay — shown before user clicks Play Now */
+          <div
+            className="absolute inset-0 flex flex-col items-center justify-center cursor-pointer overflow-hidden"
+            onClick={() => setIsStarted(true)}
+          >
+            {/* Blurred background */}
+            {coverImage && (
+              <img
+                src={coverImage}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 w-full h-full object-cover scale-110 blur-sm brightness-50"
+              />
+            )}
+            {/* Logo + button */}
+            <div className="relative flex flex-col items-center gap-5 z-10 select-none">
+              {logoImage && (
+                <img
+                  src={logoImage}
+                  alt={gameTitle}
+                  className="w-36 h-36 rounded-2xl shadow-2xl object-cover border-2 border-white/20"
+                />
+              )}
+              <button
+                className="flex items-center gap-2.5 bg-yellow-400 hover:bg-yellow-300 active:scale-95
+                           text-gray-900 font-bold text-lg px-8 py-3 rounded-full shadow-xl
+                           transition-all duration-150"
+                onClick={() => setIsStarted(true)}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"
+                  fill="currentColor">
+                  <polygon points="5 3 19 12 5 21 5 3"/>
+                </svg>
+                Play Now
+              </button>
+            </div>
+          </div>
+        )}
       </div>
 
       {/* ── Toolbar ── */}

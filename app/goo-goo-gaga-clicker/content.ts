@@ -13,6 +13,8 @@ export const gooGooGagaClickerContent = {
       externalUrl: '/game/goo-goo-gaga-clicker/index.html'
     },
     gameHeight: 'h-[800px] min-h-[700px]',
+    coverImage: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker.webp",
+    logoImage: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker-logo.png",
   },
 
   features: {

@@ -15,6 +15,8 @@ export const brainrotClickerContent = {
       externalUrl: 'https://game.azgame.io/italian-brainrot-clicker/'
     },
     gameHeight: "h-[780px]",
+    coverImage: "/assets/brainrot-clicker/brainrot-clicker.webp",
+    logoImage: "/assets/brainrot-clicker/brainrot-clicker.webp",
   },
 
   // 特性部分配置
