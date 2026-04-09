@@ -86,48 +86,27 @@ export const brainrotClickerContent = {
   },
   
   faq: {
-    // Title updated
-    title: "Italian Brainrot Clicker: Your Questions Answered (Free Online Meme Game FAQ)",
+    title: "Italian Brainrot Clicker – FAQ",
     items: [
       {
-        value: "what-is-brainrot-clicker", // More specific value
+        value: "what-is-brainrot-clicker",
         question: "What kind of game is Italian Brainrot Clicker?",
-        answer: "Italian Brainrot Clicker is a free online incremental clicker game powered by the hilarious Italian Brainrot meme trend. You tap to earn points, unlock bizarre meme characters, and upgrade them to progress through increasingly chaotic levels. It's a fun, unblocked game perfect for quick plays or longer sessions."
+        answer: "Italian Brainrot Clicker is a free online incremental clicker game built around the viral Italian Brainrot meme trend. Click to earn points, unlock bizarre meme characters like Cappuccino Assassino and Bobritto Bandito, and upgrade your empire. No download required — play instantly in your browser."
       },
       {
-        value: "how-to-play-online",
-        question: "How do I play Italian Brainrot Clicker online?",
-        answer: "Playing Italian Brainrot Clicker is easy! It's a free browser game, so no download is needed. Just visit the game page and start clicking. The more you click, the more points you get to unlock upgrades and new meme characters. It’s a classic clicker game experience, unblocked for instant access."
-      },
-      {
-        value: "main-objective-game",
-        question: "What's the main goal in Italian Brainrot Clicker games?",
-        answer: "The main goal in Italian Brainrot Clicker is to click your way through the viral Italian Brainrot universe, unlocking all the meme characters (like Cappuccino Assasino, Bobritto Bandito) and their upgrades. It's about embracing the absurdity and seeing how far your meme army can progress in this free online game!"
-      },
-      {
-        value: "are-io-games-similar", // Connecting to io games keyword
-        question: "Is Italian Brainrot Clicker like other io games?",
-        answer: "While Italian Brainrot Clicker is primarily an incremental clicker game, it shares the instant accessibility and often chaotic fun found in many popular free io games. It's browser-based, unblocked, and offers a simple yet addictive gameplay loop that many io games players enjoy."
+        value: "is-brainrot-free-unblocked",
+        question: "Is Italian Brainrot Clicker free and unblocked?",
+        answer: "Yes. Italian Brainrot Clicker is completely free to play with no download or sign-up needed. It is also fully unblocked, meaning you can access it from any network including school and work — just open your browser and start clicking."
       },
       {
         value: "mobile-play",
         question: "Can I play Italian Brainrot Clicker on my phone?",
-        answer: "Yes! You can play Italian Brainrot Clicker, this fun free online game, on your phone or most other devices with a modern web browser. Being unblocked and browser-based makes it easily accessible."
+        answer: "Yes. The game runs in any modern mobile browser on Android and iOS. Tap the screen to click and use the same upgrade and character unlock mechanics as the desktop version. No app download needed."
       },
       {
         value: "what-is-brainrot-meme",
-        question: "What is an 'Italian Brainrot' meme, as seen in the game?",
-        answer: "An 'Italian Brainrot' meme, like those featured in the Italian Brainrot Clicker game, typically refers to viral internet trends, sounds, or characters that become incredibly pervasive, often repeated without deep meaning but for sheer absurdist humor. This free online game celebrates that culture!"
-      },
-      {
-        value: "strategy-tips-progression",
-        question: "What are some tips for faster progression in Italian Brainrot Clicker?",
-        answer: "The key to progressing faster is balancing active clicking with strategic upgrades. Early on, prioritize cursor multipliers and auto-click upgrades to build passive income. Watch for characters that are about to become affordable and save up for them – character unlocks often provide the biggest multiplier boosts. As you progress, focus on upgrades that synergize with your playstyle, whether that's active clicking power or passive income generation. Don't ignore special effects and surprise boosts when they appear!"
-      },
-      {
-        value: "what-to-unlock-first",
-        question: "What upgrades or characters should I prioritize unlocking first?",
-        answer: "Start by unlocking your first meme character as soon as possible – this usually provides a significant income boost. Then focus on auto-click upgrades to generate passive income, which lets you progress faster even while away from the game. Continue alternating between cursor multipliers and new character unlocks as you earn enough points. Don't save up indefinitely for expensive characters early on; steady progression through cheaper upgrades often gives better returns. As you unlock more characters, their stacking multiplier bonuses accelerate your overall earnings dramatically."
+        question: "What is the Italian Brainrot meme?",
+        answer: "Italian Brainrot refers to a viral internet trend featuring absurd AI-generated characters with Italian-sounding names and chaotic humor. Characters like Tralalero Tralala and Bombardiro Crocodilo exploded across TikTok and YouTube in 2024–2025. Italian Brainrot Clicker turns these memes into an idle game you can play for free."
       }
     ]
   }

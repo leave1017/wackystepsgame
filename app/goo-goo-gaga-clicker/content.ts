@@ -68,44 +68,24 @@ export const gooGooGagaClickerContent = {
     title: "Frequently Asked Questions – Goo Goo Gaga Clicker",
     items: [
       {
-        value: "what-is-goo-goo-gaga-clicker",
-        question: "What is Goo Goo Gaga Clicker?",
-        answer: "Goo Goo Gaga Clicker is a free online idle clicker game based on the viral Goo Goo Gaga meme. Players click to earn points, purchase upgrades, unlock 16 meme characters, and use the Ascend rebirth mechanic. No download required — play directly in your browser."
-      },
-      {
         value: "is-it-free",
         question: "Is Goo Goo Gaga Clicker free to play?",
-        answer: "Yes. Goo Goo Gaga Clicker is completely free to play in your browser with no download, no registration, and no payment needed."
-      },
-      {
-        value: "how-many-characters",
-        question: "How many characters are in Goo Goo Gaga Clicker?",
-        answer: "There are 16 unique meme characters to unlock. Each character has a different unlock cost and provides bonus multipliers to your clicking power and passive income."
-      },
-      {
-        value: "what-is-ascend",
-        question: "What does Ascend do in Goo Goo Gaga Clicker?",
-        answer: "Ascend is a prestige mechanic. It resets your current run but grants permanent multipliers that make all future runs faster and more powerful. Ascending multiple times is the path to maximum progression."
-      },
-      {
-        value: "play-on-mobile",
-        question: "Can I play Goo Goo Gaga Clicker on mobile?",
-        answer: "Yes. Since it runs in any modern web browser, you can play on smartphones and tablets. Just tap the screen instead of clicking — no app download needed."
-      },
-      {
-        value: "tips-for-progression",
-        question: "What are some tips for faster progression in Goo Goo Gaga Clicker?",
-        answer: "Prioritize getting your first few characters unlocked as quickly as possible — their multiplier stacking accelerates everything exponentially. Don't ignore passive income upgrades early on; they compound your earnings and let you progress while away from the game. Watch the weather system and adjust your strategy for beneficial conditions. Save up for character unlocks rather than spending on marginal click upgrades, since characters provide the biggest multiplier boosts."
-      },
-      {
-        value: "when-to-ascend",
-        question: "When should I use the Ascend mechanic in Goo Goo Gaga Clicker?",
-        answer: "Ascend once you've unlocked a solid number of characters — usually around half of the 16 total. Your first Ascension provides permanent multipliers that make subsequent runs dramatically faster. Plan subsequent Ascensions when you've hit a wall and progression feels slow; the multipliers from Ascending reset the difficulty curve and reveal new milestones. Multiple Ascensions are the path to maximum progression."
+        answer: "Yes. Goo Goo Gaga Clicker is completely free to play in your browser with no download, no registration, and no payment needed. The full game — all 16 characters and the Ascend mechanic — is available at zero cost."
       },
       {
         value: "unblocked-access",
         question: "Is Goo Goo Gaga Clicker unblocked?",
-        answer: "Yes. Goo Goo Gaga Clicker is completely unblocked and accessible from any network including schools and offices. Being a browser-based game with no special requirements, it works anywhere you have internet access. No VPN or workarounds needed."
+        answer: "Yes. Goo Goo Gaga Clicker is fully unblocked and accessible from any network, including schools and offices. It's a browser-based game with no special requirements — no VPN or workarounds needed."
+      },
+      {
+        value: "play-on-mobile",
+        question: "Can I play Goo Goo Gaga Clicker on mobile?",
+        answer: "Yes. The game runs in any modern mobile browser. Tap the screen instead of clicking — no app download needed. It works on both Android and iOS devices."
+      },
+      {
+        value: "what-is-ascend",
+        question: "What does Ascend do in Goo Goo Gaga Clicker?",
+        answer: "Ascend is a prestige mechanic that resets your current run in exchange for permanent multipliers, making all future runs significantly faster and more powerful. Ascending multiple times is the key to reaching maximum progression."
       }
     ]
   },

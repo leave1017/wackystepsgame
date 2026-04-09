@@ -84,53 +84,27 @@ export const basketballBrosUnblockedContent = {
   },
   
   faq: {
-    // Title updated for comprehensiveness
-    title: "Basketball Bros Unblocked: FAQ (Free Online Pixel Arcade Game)",
+    title: "Basketball Bros Unblocked – FAQ",
     items: [
+      {
+        value: "is-it-free-unblocked",
+        question: "Is Basketball Bros Unblocked free and truly unblocked?",
+        answer: "Yes. Basketball Bros Unblocked is completely free to play with no download required. It is fully unblocked, so you can access it from any network including school and work — just open your browser and play instantly."
+      },
+      {
+        value: "controls-2player",
+        question: "What are the controls for Basketball Bros Unblocked 2-player mode?",
+        answer: "In 2-player mode, Player 1 uses W, A, S, D keys for movement and actions, while Player 2 uses the arrow keys. Both players share the same keyboard, making it easy to challenge a friend head-to-head without any extra setup."
+      },
       {
         value: "what-is-basketball-bros",
         question: "What kind of game is Basketball Bros Unblocked?",
-        // Enhanced answer with new details
-        answer: "Basketball Bros Unblocked is a free-to-play online arcade basketball game with a cool retro pixel art style. It features fast-paced, high-energy action in both solo and 2-player local modes, playable unblocked in your browser. It's one of those crazy fun sports games!"
+        answer: "Basketball Bros Unblocked is a free online arcade basketball game with retro pixel art graphics. It offers fast-paced 1-player and 2-player local modes, character unlocks, and dynamic courts — all playable directly in your browser with no download needed."
       },
       {
-        value: "how-to-play-online",
-        question: "How do I play Basketball Bros Unblocked online?",
-        // Reinforced ease of access
-        answer: "You can play Basketball Bros Unblocked for free directly on this website. Being an unblocked online game, no download is required. Just load it in your browser and enjoy the instant basketball fun!"
-      },
-      {
-        value: "main-objective-game",
-        question: "What's the main goal in Basketball Bros Unblocked games?",
-        // Clarified solo and 2-player goal
-        answer: "The main goal in this free online game is to win basketball matches by outscoring your opponent. You can challenge clever AI in solo mode or compete against a friend in exciting 2-player local matchups for some crazy fun."
-      },
-      {
-        value: "is-it-free-unblocked", // Combined for clarity
-        question: "Is Basketball Bros Unblocked free and truly unblocked?",
-        // Stronger affirmation
-        answer: "Absolutely! Basketball Bros Unblocked is completely free to play online. Its 'unblocked' nature means you can typically access and play this game from anywhere, like school or work, without restrictions."
-      },
-      {
-        value: "controls-2player", // More specific question
-        question: "What are the 2-player controls for Basketball Bros Unblocked?",
-        // Added specific control info
-        answer: "For 2-player mode in this crazy online game, one player usually uses the W, A, S, D keys for movement and actions, while the other player uses the arrow keys. This setup makes for fun head-to-head local games on a single keyboard!"
-      },
-      {
-        value: "unlockables-game", // New FAQ based on intro
-        question: "Can I unlock things in Basketball Bros Unblocked?",
-        answer: "Yes! As you play this free game, you can earn coins to unlock new 'bros' (characters), different skins, and various dynamic courts, adding to the replayability and crazy fun of your online matches."
-      },
-      {
-        value: "tips-winning-matches",
-        question: "What are some tips for winning matches in Basketball Bros Unblocked?",
-        answer: "Master ball control and positioning before worrying about fancy shots. Defend aggressively by staying between your opponent and the basket. Learn the timing for shooting — consistency is more important than power. Practice in solo mode against AI first to build fundamentals, then test your skills in competitive 2-player matches. Remember that quick, decisive moves often beat hesitation."
-      },
-      {
-        value: "game-difficulty-levels",
-        question: "Does Basketball Bros Unblocked have difficulty levels?",
-        answer: "In solo mode, the AI opponent adjusts to your skill level, providing appropriate challenge whether you're a beginner or an experienced player. 2-player mode difficulty depends entirely on your opponent's skill. The game has no explicit difficulty settings — instead, it adapts naturally to provide a competitive, fun experience for players of all abilities."
+        value: "mobile-play",
+        question: "Can I play Basketball Bros Unblocked on mobile?",
+        answer: "Yes. Basketball Bros Unblocked runs in modern mobile browsers on Android and iOS. Touch controls replace keyboard input on mobile devices, so you can enjoy the game anywhere without downloading an app."
       }
     ]
   }
