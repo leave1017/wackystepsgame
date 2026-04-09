@@ -5,10 +5,10 @@ import { brainrotClickerContent } from "./content";
 import { generateGameSchema, generateFAQSchema, generateHowToSchema, generateBreadcrumbSchema } from "@/app/schema";
 
 export const metadata: Metadata = {
-  title: `Italian Brainrot Clicker - Free Online Clicker Game`,
+  title: `Italian Brainrot Clicker - Free Online Game`,
   description: "Play Italian Brainrot Clicker unblocked online for free! Tap into meme madness in this addictive clicker game. No download, instant browser play. Click to Play!",
   openGraph: {
-    title: `Italian Brainrot Clicker - Free Online Clicker Game`,
+    title: `Italian Brainrot Clicker - Free Online Game`,
     description: "Dive into Italian Brainrot Clicker! Tap through meme madness in this addictive online clicker game. Instant play, no download!",
     type: 'website',
     url: `${siteConfig.url}/brainrot-clicker`,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Italian Brainrot Clicker - Free Online Meme Game',
+    title: 'Italian Brainrot Clicker - Free Online Game',
     description: 'Dive into Italian Brainrot Clicker! Tap through meme madness in this addictive online clicker game. Instant play, no download!',
     images: [`/assets/brainrot-clicker/brainrot-clicker.jpg`],
   },

@@ -5,11 +5,11 @@ import { horseMagnifierContent } from "./content";
 import { generateGameSchema, generateFAQSchema, generateHowToSchema, generateBreadcrumbSchema } from "@/app/schema";
 
 export const metadata: Metadata = {
-  title: "Horse Magnifier – Free Online Indie Exploration Game",
+  title: "Horse Magnifier – Free Online Game",
   description:
     "Play Horse Magnifier free online. Zoom into a horse, uncover surreal hidden details in this quirky indie game. No download needed — play now in your browser!",
   openGraph: {
-    title: "Horse Magnifier – Free Online Indie Exploration Game",
+    title: "Horse Magnifier – Free Online Game",
     description:
       "Zoom into a horse and uncover surreal hidden details in this quirky free indie game. No download needed — play instantly in your browser.",
     type: "website",
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Horse Magnifier – Free Online Indie Exploration Game",
+    title: "Horse Magnifier – Free Online Game",
     description:
       "Zoom into a horse and discover surreal hidden details. Free browser game, no download needed!",
     images: [`/assets/horse-magnifier/horse-magnifier.webp`],

@@ -5,10 +5,10 @@ import { gooGooGagaClickerContent } from "./content";
 import { generateGameSchema, generateFAQSchema, generateHowToSchema, generateBreadcrumbSchema } from "@/app/schema";
 
 export const metadata: Metadata = {
-  title: `Goo Goo Gaga Clicker – Free Online Idle Clicker Game`,
+  title: `Goo Goo Gaga Clicker – Free Online Game`,
   description: "Play Goo Goo Gaga Clicker free online. Unlock 16 meme characters, earn points, and ascend your clicking empire. No download needed — play in your browser now.",
   openGraph: {
-    title: `Goo Goo Gaga Clicker – Free Online Idle Clicker Game`,
+    title: `Goo Goo Gaga Clicker – Free Online Game`,
     description: "Play Goo Goo Gaga Clicker free online. Unlock 16 meme characters, no download needed.",
     type: 'website',
     url: `${siteConfig.url}/goo-goo-gaga-clicker`,
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Goo Goo Gaga Clicker – Free Online Idle Clicker Game',
+    title: 'Goo Goo Gaga Clicker – Free Online Game',
     description: 'Play Goo Goo Gaga Clicker free online — no download required!',
     images: [`/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker-logo.png`],
   },
