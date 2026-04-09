@@ -7,7 +7,7 @@ import { generateGameSchema, generateFAQSchema, generateHowToSchema, generateBre
 export const metadata: Metadata = {
   title: "Horse Magnifier – Free Online Indie Exploration Game",
   description:
-    "Play Horse Magnifier free online. Zoom into a horse, uncover surreal hidden details, and enjoy this quirky indie exploration game by wer8888. No download needed — play in your browser now.",
+    "Play Horse Magnifier free online. Zoom into a horse, uncover surreal hidden details in this quirky indie game. No download needed — play now in your browser!",
   openGraph: {
     title: "Horse Magnifier – Free Online Indie Exploration Game",
     description:
