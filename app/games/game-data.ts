@@ -42,6 +42,13 @@ export const games: Record<string, Game> = {
     image: "/assets/horse-magnifier/horse-magnifier.webp",
     url: "/horse-magnifier",
   },
+  "red-face-horror": {
+    id: "red-face-horror",
+    title: "Red Face Horror",
+    description: "Survive the terrifying Red Face creature in this free online 3D horror game. No download needed — play unblocked in your browser!",
+    image: "/assets/Red face horror/Red face horror.webp",
+    url: "/red-face-horror",
+  },
 };
 
 // 获取其他游戏列表
