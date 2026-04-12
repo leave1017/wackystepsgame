@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: BlogPostPageProps) {
     title: post.title,
     description: post.description,
     alternates: {
-      canonical: `${siteConfig.url}/blog/${post.slug}`,
+      canonical: `${siteConfig.url}/blog/${post.slug}/`,
     },
   };
 }

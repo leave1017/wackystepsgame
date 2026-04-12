@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     images: [`/assets/horse-magnifier/horse-magnifier.webp`],
   },
   alternates: {
-    canonical: `${siteConfig.url}/horse-magnifier`,
+    canonical: `${siteConfig.url}/horse-magnifier/`,
   },
 };
 

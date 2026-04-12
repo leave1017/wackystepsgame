@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: `Privacy Policy - ${siteConfig.name}`,
   alternates: {
-    canonical: `${siteConfig.url}/privacy-policy`,
+    canonical: `${siteConfig.url}/privacy-policy/`,
   },
 };
 

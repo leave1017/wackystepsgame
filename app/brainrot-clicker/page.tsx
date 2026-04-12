@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: [`/assets/brainrot-clicker/brainrot-clicker.jpg`],
   },
   alternates: {
-    canonical: `${siteConfig.url}/brainrot-clicker`,
+    canonical: `${siteConfig.url}/brainrot-clicker/`,
   }
 };
 

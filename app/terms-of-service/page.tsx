@@ -7,7 +7,7 @@ import { Footer } from "@/components/layout/Footer";
 export const metadata: Metadata = {
   title: `Terms of Service - ${siteConfig.name}`,
   alternates: {
-    canonical: `${siteConfig.url}/terms-of-service`,
+    canonical: `${siteConfig.url}/terms-of-service/`,
   },
 };
 

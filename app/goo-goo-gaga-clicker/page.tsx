@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: [`/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker-logo.png`],
   },
   alternates: {
-    canonical: `${siteConfig.url}/goo-goo-gaga-clicker`,
+    canonical: `${siteConfig.url}/goo-goo-gaga-clicker/`,
   }
 };
 

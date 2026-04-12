@@ -5,11 +5,11 @@ import { redFaceHorrorContent } from "./content";
 import { generateGameSchema, generateFAQSchema, generateHowToSchema, generateBreadcrumbSchema } from "@/app/schema";
 
 export const metadata: Metadata = {
-  title: "Red Face Horror – Free Online 3D Horror Game",
+  title: "Red Face Horror – Free Online Game",
   description:
     "Play Red Face Horror free online. Survive the terrifying Red Face creature in this 3D browser horror game. No download needed — unblocked and instant play!",
   openGraph: {
-    title: "Red Face Horror – Free Online 3D Horror Game",
+    title: "Red Face Horror – Free Online Game",
     description:
       "Survive the Red Face creature in this free 3D browser horror game. No download needed — play instantly, fully unblocked.",
     type: "website",
@@ -24,13 +24,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Red Face Horror – Free Online 3D Horror Game",
+    title: "Red Face Horror – Free Online Game",
     description:
       "Survive the Red Face in this free unblocked 3D horror browser game. No download needed!",
     images: [`/assets/Red face horror/Red face horror.webp`],
   },
   alternates: {
-    canonical: `${siteConfig.url}/red-face-horror`,
+    canonical: `${siteConfig.url}/red-face-horror/`,
   },
 };
 

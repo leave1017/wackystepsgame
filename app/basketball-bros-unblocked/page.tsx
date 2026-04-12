@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     images: [`/assets/basketball-bros-unblocked/basketball-bros-unblocked.png`],
   },
   alternates: {
-    canonical: `${siteConfig.url}/basketball-bros-unblocked`,
+    canonical: `${siteConfig.url}/basketball-bros-unblocked/`,
   }
 };
 

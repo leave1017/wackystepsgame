@@ -8,7 +8,7 @@ export const metadata = {
   title: `Blog - ${siteConfig.name}`,
   description: "Tips, guides, and game recommendations from the Wacky Steps team. Learn how to walk further, unlock characters, and discover the best free browser games.",
   alternates: {
-    canonical: `${siteConfig.url}/blog`,
+    canonical: `${siteConfig.url}/blog/`,
   },
 };
 
