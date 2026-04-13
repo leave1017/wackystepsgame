@@ -9,6 +9,7 @@ import { HowToPlay } from "@/components/how-to-play/HowToPlay";
 import { FAQ } from "@/components/faq/FAQ";
 import { Footer } from "@/components/layout/Footer";
 import { getOtherGames, Game } from "@/app/games/game-data";
+import { CategorySidebar } from "@/components/layout/CategorySidebar";
 import Link from "next/link";
 
 interface GamePageTemplateProps {
@@ -26,10 +27,10 @@ function SidebarGameCard({ game }: { game: Game }) {
   return (
     <Link
       href={game.url}
-      className="group block rounded-lg overflow-hidden border border-border hover:border-primary transition-colors duration-200 bg-card"
+      className="group flex items-center gap-2 rounded-lg overflow-hidden border border-border hover:border-primary transition-colors duration-200 bg-card p-1"
       aria-label={`Play ${game.title}`}
     >
-      <div className="aspect-video w-full overflow-hidden bg-muted">
+      <div className="w-12 h-12 flex-shrink-0 rounded overflow-hidden bg-muted">
         <img
           src={game.image}
           alt={game.title}
@@ -37,11 +38,9 @@ function SidebarGameCard({ game }: { game: Game }) {
           loading="lazy"
         />
       </div>
-      <div className="px-2 py-1.5">
-        <p className="text-[11px] font-semibold text-foreground line-clamp-2 leading-tight">
-          {game.title}
-        </p>
-      </div>
+      <p className="text-[11px] font-semibold text-foreground line-clamp-2 leading-tight flex-1 min-w-0">
+        {game.title}
+      </p>
     </Link>
   );
 }
@@ -74,10 +73,7 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
   const [theaterMode, setTheaterMode] = useState(false);
 
   const gameTitle = gameConfig.content.gameSection?.title || gameConfig.metadata.title;
-  const allGames = getOtherGames();
-  const mid = Math.ceil(allGames.length / 2);
-  const leftGames = allGames.slice(0, mid);
-  const rightGames = allGames.slice(mid);
+  const allGames = getOtherGames().filter(g => g.url !== gameConfig.metadata.url);
   const tags: string[] = (gameConfig.content as any).tags ?? [];
 
   return (
@@ -106,16 +102,10 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
           </h1>
         )}
 
-        {/* ── Desktop: 3-col U-shape layout ── */}
+        {/* ── Desktop: 3-col layout ── */}
         <div className="flex gap-3 items-start">
-          {/* Left sidebar — hidden in theater mode */}
-          {!theaterMode && (
-            <aside className="hidden lg:flex flex-col gap-2 w-[152px] flex-shrink-0">
-              {leftGames.map((game) => (
-                <SidebarGameCard key={game.id} game={game} />
-              ))}
-            </aside>
-          )}
+          {/* Left: category sidebar */}
+          {!theaterMode && <CategorySidebar />}
 
           {/* Center: game iframe */}
           <div className="flex-1 min-w-0">
@@ -126,19 +116,19 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
             />
           </div>
 
-          {/* Right sidebar — hidden in theater mode */}
+          {/* Right: all other games single column */}
           {!theaterMode && (
-            <aside className="hidden lg:flex flex-col gap-2 w-[152px] flex-shrink-0">
-              {rightGames.map((game) => (
+            <aside className="hidden lg:flex flex-col gap-1 w-[152px] flex-shrink-0">
+              {allGames.map((game) => (
                 <SidebarGameCard key={game.id} game={game} />
               ))}
             </aside>
           )}
         </div>
 
-        {/* ── Mobile: game grid below iframe — hidden in theater mode ── */}
+        {/* ── Mobile: game grid — hidden in theater mode ── */}
         {!theaterMode && (
-          <div className="lg:hidden grid grid-cols-3 sm:grid-cols-4 gap-2 mb-6">
+          <div className="lg:hidden grid grid-cols-3 sm:grid-cols-4 gap-2 mb-6 mt-4">
             {allGames.map((game) => (
               <MobileGameCard key={game.id} game={game} />
             ))}
