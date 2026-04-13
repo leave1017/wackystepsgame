@@ -49,6 +49,20 @@ export const games: Record<string, Game> = {
     image: "/assets/Red face horror/Red face horror.webp",
     url: "/red-face-horror",
   },
+  "office-fury": {
+    id: "office-fury",
+    title: "Office Fury",
+    description: "Smash, destroy, and wreak havoc through an entire office in this free online 3D rage game. No download — play unblocked now!",
+    image: "/assets/office-fury/office-fury-what is.webp",
+    url: "/office-fury",
+  },
+  "astro-tycoon": {
+    id: "astro-tycoon",
+    title: "Astro Tycoon",
+    description: "Build your space empire, launch rockets, and colonize planets in this free online idle tycoon game. No download needed!",
+    image: "/assets/astro tycoon/astro-tycoon-what is.webp",
+    url: "/astro-tycoon",
+  },
 };
 
 // 获取其他游戏列表
