@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: `Basketball Bros Unblocked - Free Online Game`,
     description: "Play Basketball Bros Unblocked - a free arcade basketball game right in your browser. No downloads required.",
     type: 'website',
-    url: `${siteConfig.url}/basketball-bros-unblocked`,
+    url: `${siteConfig.url}/basketball-bros-unblocked/`,
     siteName: siteConfig.name,
     images: [
       {

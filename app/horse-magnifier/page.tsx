@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Zoom into a horse and uncover surreal hidden details in this quirky free indie game. No download needed — play instantly in your browser.",
     type: "website",
-    url: `${siteConfig.url}/horse-magnifier`,
+    url: `${siteConfig.url}/horse-magnifier/`,
     siteName: siteConfig.name,
     images: [
       {

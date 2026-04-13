@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Survive the Red Face creature in this free 3D browser horror game. No download needed — play instantly, fully unblocked.",
     type: "website",
-    url: `${siteConfig.url}/red-face-horror`,
+    url: `${siteConfig.url}/red-face-horror/`,
     siteName: siteConfig.name,
     images: [
       {

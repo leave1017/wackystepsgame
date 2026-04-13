@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Build a space empire in this free idle tycoon game. Launch rockets, colonize planets, no download needed — play unblocked in your browser.",
     type: "website",
-    url: `${siteConfig.url}/astro-tycoon`,
+    url: `${siteConfig.url}/astro-tycoon/`,
     siteName: siteConfig.name,
     images: [
       {

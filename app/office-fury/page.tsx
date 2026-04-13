@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     description:
       "Smash everything in sight in this free 3D office destruction game. No download needed — play unblocked instantly in your browser.",
     type: "website",
-    url: `${siteConfig.url}/office-fury`,
+    url: `${siteConfig.url}/office-fury/`,
     siteName: siteConfig.name,
     images: [
       {

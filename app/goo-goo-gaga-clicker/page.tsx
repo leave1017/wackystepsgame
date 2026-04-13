@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: `Goo Goo Gaga Clicker – Free Online Game`,
     description: "Play Goo Goo Gaga Clicker free online. Unlock 16 meme characters, no download needed.",
     type: 'website',
-    url: `${siteConfig.url}/goo-goo-gaga-clicker`,
+    url: `${siteConfig.url}/goo-goo-gaga-clicker/`,
     siteName: siteConfig.name,
     images: [
       {

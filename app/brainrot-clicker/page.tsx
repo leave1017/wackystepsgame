@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: `Italian Brainrot Clicker - Free Online Game`,
     description: "Dive into Italian Brainrot Clicker! Tap through meme madness in this addictive online clicker game. Instant play, no download!",
     type: 'website',
-    url: `${siteConfig.url}/brainrot-clicker`,
+    url: `${siteConfig.url}/brainrot-clicker/`,
     siteName: siteConfig.name,
     images: [
       {
