@@ -86,11 +86,11 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-4 py-8 lg:pl-16">
+      <main className="container mx-auto px-4 pt-4 pb-8 lg:pl-16">
 
         {/* Breadcrumb — hidden in theater mode */}
         {!theaterMode && (
-          <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
+          <nav aria-label="Breadcrumb" className="mb-2 text-sm text-muted-foreground">
             <ol className="flex items-center gap-1 flex-wrap">
               <li><Link href="/" className="hover:text-primary">Home</Link></li>
               <li aria-hidden="true">&rsaquo;</li>
@@ -103,7 +103,7 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
 
         {/* H1 — hidden in theater mode */}
         {!theaterMode && (
-          <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">
+          <h1 className="text-2xl md:text-3xl font-bold text-center mb-3">
             {gameTitle}
           </h1>
         )}

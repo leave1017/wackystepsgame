@@ -75,11 +75,11 @@ export function HomeTemplate() {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-4 py-8 lg:pl-16">
+      <main className="container mx-auto px-4 pt-4 pb-8 lg:pl-16">
 
         {/* Breadcrumb */}
         {!theaterMode && (
-          <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
+          <nav aria-label="Breadcrumb" className="mb-2 text-sm text-muted-foreground">
             <ol className="flex items-center gap-1 flex-wrap">
               <li><Link href="/" className="hover:text-primary">Home</Link></li>
               <li aria-hidden="true">&rsaquo;</li>
@@ -91,10 +91,10 @@ export function HomeTemplate() {
         {/* H1 + description — hidden in theater mode */}
         {!theaterMode && (
           <>
-            <h1 className="text-3xl md:text-4xl font-bold text-center mb-2">
+            <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">
               Wacky Steps
             </h1>
-            <p className="text-center text-muted-foreground mb-6 lg:mb-8 text-lg">
+            <p className="text-center text-muted-foreground mb-3 text-sm">
               A free browser ragdoll walking game — avoid sidewalk cracks, survive every step, and walk as far as you can.
             </p>
           </>
