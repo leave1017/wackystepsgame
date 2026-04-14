@@ -11,6 +11,7 @@ export const content = {
     navigation: {
       links: [
         { text: "Home", href: "/" },
+        { text: "New Games", href: "/games/new" },
         { text: "Hot Games", href: "/games" },
         { text: "Blog", href: "/blog" },
       ]

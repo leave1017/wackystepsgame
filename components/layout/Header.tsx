@@ -63,6 +63,20 @@ export function Header({ searchQuery: _sq, onSearchChange: _osc, onSearch: _os }
 
         {/* Desktop nav + search */}
         <div className="hidden md:flex items-center gap-6">
+          <form onSubmit={handleSearch} className="flex items-center gap-1">
+            <Input
+              type="search"
+              placeholder="Search games..."
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              className="h-8 w-52 text-sm"
+              aria-label="Search games"
+            />
+            <Button type="submit" size="icon" className="h-8 w-8" aria-label="Search">
+              <Search className="h-4 w-4" />
+            </Button>
+          </form>
+
           <nav className="flex items-center gap-6">
             {content.header.navigation.links.map((link) => (
               <Link
@@ -79,20 +93,6 @@ export function Header({ searchQuery: _sq, onSearchChange: _osc, onSearch: _os }
               </Link>
             ))}
           </nav>
-
-          <form onSubmit={handleSearch} className="flex items-center gap-1">
-            <Input
-              type="search"
-              placeholder="Search games..."
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              className="h-8 w-44 text-sm"
-              aria-label="Search games"
-            />
-            <Button type="submit" size="icon" className="h-8 w-8" aria-label="Search">
-              <Search className="h-4 w-4" />
-            </Button>
-          </form>
         </div>
 
         {/* Mobile menu button */}

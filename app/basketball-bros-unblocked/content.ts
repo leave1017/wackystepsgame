@@ -14,7 +14,6 @@ export const basketballBrosUnblockedContent = {
       title: "Basketball Bros Unblocked",
       externalUrl: 'https://basketbros.io/', // 外部链接
     },
-    gameHeight: "h-[75vh] min-h-[560px]",
     coverImage: "/assets/basketball-bros-unblocked/basketball-bros-unblocked.webp",
     logoImage: "/assets/basketball-bros-unblocked/basketball-bros-unblocked.webp",
   },

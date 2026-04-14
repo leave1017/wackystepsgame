@@ -12,7 +12,6 @@ export const astroTycoonContent = {
       title: "astro-tycoon",
       externalUrl: "https://gamea.azgame.io/astro-tycoon/",
     },
-    gameHeight: "h-[75vh] min-h-[560px]",
     coverImage: "/assets/astro tycoon/astro-tycoon-what is.webp",
     logoImage: "/assets/astro tycoon/astro-tycoon-what is.webp",
   },

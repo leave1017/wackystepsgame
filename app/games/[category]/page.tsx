@@ -40,9 +40,20 @@ export default function CategoryPage({
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 lg:pl-16">
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" className="mb-4 text-sm text-muted-foreground">
+          <ol className="flex items-center gap-1 flex-wrap">
+            <li><Link href="/" className="hover:text-primary">Home</Link></li>
+            <li aria-hidden="true">&rsaquo;</li>
+            <li><Link href="/games" className="hover:text-primary">Games</Link></li>
+            <li aria-hidden="true">&rsaquo;</li>
+            <li className="text-foreground font-medium" aria-current="page">{cat.label}</li>
+          </ol>
+        </nav>
+
         <div className="flex gap-3 items-start">
-          {/* Left: category sidebar */}
+          {/* Left: category sidebar (fixed) */}
           <CategorySidebar />
 
           {/* Main content */}
@@ -54,7 +65,7 @@ export default function CategoryPage({
             {gameList.length === 0 ? (
               <p className="text-muted-foreground">No games in this category yet. Check back soon!</p>
             ) : (
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                 {gameList.map((game) => (
                   <Link
                     key={game.id}
@@ -81,7 +92,7 @@ export default function CategoryPage({
                       )}
                     </div>
                     <div className="px-2 py-1.5">
-                      <p className="text-[12px] font-semibold text-foreground line-clamp-2 leading-tight">
+                      <p className="text-sm font-semibold text-foreground line-clamp-2 leading-tight">
                         {game.title}
                       </p>
                     </div>

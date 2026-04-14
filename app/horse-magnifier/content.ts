@@ -12,7 +12,6 @@ export const horseMagnifierContent = {
       title: "horse-magnifier",
       externalUrl: "https://wer8888.itch.io/horse-magnifier",
     },
-    gameHeight: "h-[75vh] min-h-[560px]",
     coverImage: "/assets/horse-magnifier/horse-magnifier.webp",
     logoImage: "/assets/horse-magnifier/horse-magnifier.webp",
   },

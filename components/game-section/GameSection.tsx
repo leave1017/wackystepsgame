@@ -404,7 +404,7 @@ export function GameSection({
         ref={containerRef}
         className={cn(
           "w-full max-w-5xl mx-auto overflow-hidden shadow-xl relative mb-0 rounded-t-lg",
-          (content.gameSection as any).gameHeight || "h-[65vh] min-h-[480px]",
+          "h-[620px]",
           theme.gameSection.colors.container,
         )}
       >

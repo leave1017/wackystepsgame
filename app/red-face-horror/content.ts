@@ -12,7 +12,6 @@ export const redFaceHorrorContent = {
       title: "red-face-horror",
       externalUrl: "https://gamea.azgame.io/red-face-horror/",
     },
-    gameHeight: "h-[75vh] min-h-[560px]",
     coverImage: "/assets/Red face horror/Red face horror.webp",
     logoImage: "/assets/Red face horror/Red face horror.webp",
   },

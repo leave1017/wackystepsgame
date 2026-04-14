@@ -27,10 +27,10 @@ function SidebarGameCard({ game }: { game: Game }) {
   return (
     <Link
       href={game.url}
-      className="group flex items-center gap-2 rounded-lg overflow-hidden border border-border hover:border-primary transition-colors duration-200 bg-card p-1"
+      className="group block rounded-lg overflow-hidden border border-border hover:border-primary transition-colors duration-200 bg-card relative"
       aria-label={`Play ${game.title}`}
     >
-      <div className="w-12 h-12 flex-shrink-0 rounded overflow-hidden bg-muted">
+      <div className="aspect-video w-full overflow-hidden bg-muted">
         <img
           src={game.image}
           alt={game.title}
@@ -38,9 +38,15 @@ function SidebarGameCard({ game }: { game: Game }) {
           loading="lazy"
         />
       </div>
-      <p className="text-[11px] font-semibold text-foreground line-clamp-2 leading-tight flex-1 min-w-0">
-        {game.title}
-      </p>
+      {game.isNew && (
+        <span className="absolute top-1 left-1 bg-purple-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">NEW</span>
+      )}
+      {game.isHot && (
+        <span className="absolute top-1 left-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">HOT</span>
+      )}
+      <div className="px-2 py-1.5">
+        <p className="text-xs font-semibold text-foreground truncate leading-tight">{game.title}</p>
+      </div>
     </Link>
   );
 }
@@ -61,7 +67,7 @@ function MobileGameCard({ game }: { game: Game }) {
         />
       </div>
       <div className="px-1.5 py-1">
-        <p className="text-[10px] font-semibold text-foreground truncate leading-tight">
+        <p className="text-xs font-semibold text-foreground truncate leading-tight">
           {game.title}
         </p>
       </div>
@@ -80,7 +86,7 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
     <div className="min-h-screen bg-background">
       <Header />
 
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 py-8 lg:pl-16">
 
         {/* Breadcrumb — hidden in theater mode */}
         {!theaterMode && (
@@ -116,9 +122,9 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
             />
           </div>
 
-          {/* Right: all other games single column */}
+          {/* Right: all other games 2-col grid, no titles */}
           {!theaterMode && (
-            <aside className="hidden lg:flex flex-col gap-1 w-[152px] flex-shrink-0">
+            <aside className="hidden xl:flex xl:flex-col gap-2 w-[200px] flex-shrink-0 self-start">
               {allGames.map((game) => (
                 <SidebarGameCard key={game.id} game={game} />
               ))}

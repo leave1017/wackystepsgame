@@ -12,7 +12,6 @@ export const officeFuryContent = {
       title: "office-fury",
       externalUrl: "https://gamea.azgame.io/office-fury/",
     },
-    gameHeight: "h-[75vh] min-h-[560px]",
     coverImage: "/assets/office-fury/office-fury-what is.webp",
     logoImage: "/assets/office-fury/office-fury-what is.webp",
   },
