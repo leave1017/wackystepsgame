@@ -5,8 +5,16 @@ export interface Game {
   image: string;
   url: string;
   tags: string[];
-  isNew?: boolean;
+  publishedAt: string; // ISO date string, e.g. "2026-04-15"
   isHot?: boolean;
+}
+
+/** Returns badge label based on publish date (≤7 days → NEW) or isHot flag */
+export function getGameBadge(game: Game): "NEW" | "HOT" | null {
+  const days = (Date.now() - new Date(game.publishedAt).getTime()) / 86_400_000;
+  if (days <= 7) return "NEW";
+  if (game.isHot) return "HOT";
+  return null;
 }
 
 export const games: Record<string, Game> = {
@@ -17,6 +25,7 @@ export const games: Record<string, Game> = {
     image: "/assets/wacky-steps/wacky-steps.webp",
     url: "/",
     tags: ["action", "casual"],
+    publishedAt: "2026-01-01",
     isHot: true,
   },
   "goo-goo-gaga-clicker": {
@@ -26,6 +35,7 @@ export const games: Record<string, Game> = {
     image: "/assets/goo-goo-gaga-clicker/goo-goo-gaga-clicker.webp",
     url: "/goo-goo-gaga-clicker",
     tags: ["tycoon", "casual"],
+    publishedAt: "2026-01-10",
     isHot: true,
   },
   "brainrot-clicker": {
@@ -35,6 +45,7 @@ export const games: Record<string, Game> = {
     image: "/assets/brainrot-clicker/brainrot-clicker.webp",
     url: "/brainrot-clicker",
     tags: ["tycoon", "casual"],
+    publishedAt: "2026-01-20",
     isHot: true,
   },
   "basketball-bros-unblocked": {
@@ -44,6 +55,7 @@ export const games: Record<string, Game> = {
     image: "/assets/basketball-bros-unblocked/basketball-bros-unblocked.webp",
     url: "/basketball-bros-unblocked",
     tags: ["sports", "action"],
+    publishedAt: "2026-02-01",
   },
   "horse-magnifier": {
     id: "horse-magnifier",
@@ -52,7 +64,7 @@ export const games: Record<string, Game> = {
     image: "/assets/horse-magnifier/horse-magnifier.webp",
     url: "/horse-magnifier",
     tags: ["adventure", "casual"],
-    isNew: true,
+    publishedAt: "2026-04-09",
   },
   "red-face-horror": {
     id: "red-face-horror",
@@ -61,7 +73,7 @@ export const games: Record<string, Game> = {
     image: "/assets/Red face horror/Red face horror.webp",
     url: "/red-face-horror",
     tags: ["horror", "action"],
-    isNew: true,
+    publishedAt: "2026-04-12",
   },
   "office-fury": {
     id: "office-fury",
@@ -70,7 +82,7 @@ export const games: Record<string, Game> = {
     image: "/assets/office-fury/office-fury-what is.webp",
     url: "/office-fury",
     tags: ["action", "casual"],
-    isNew: true,
+    publishedAt: "2026-04-13",
   },
   "astro-tycoon": {
     id: "astro-tycoon",
@@ -79,7 +91,25 @@ export const games: Record<string, Game> = {
     image: "/assets/astro tycoon/astro-tycoon-what is.webp",
     url: "/astro-tycoon",
     tags: ["tycoon", "casual"],
-    isNew: true,
+    publishedAt: "2026-04-13",
+  },
+  "stick-hero-rpg": {
+    id: "stick-hero-rpg",
+    title: "Stick Hero RPG",
+    description: "Battle enemies, level up your stick figure hero, and unlock powerful skills in this free online action RPG browser game. No download needed!",
+    image: "/assets/stick hero rpg/what is.webp",
+    url: "/stick-hero-rpg",
+    tags: ["action", "adventure"],
+    publishedAt: "2026-04-15",
+  },
+  "lift-off-2": {
+    id: "lift-off-2",
+    title: "Lift Off 2",
+    description: "Launch your character to the sky, upgrade your rocket, and beat your distance records in this free online physics launch game. No download needed!",
+    image: "/assets/lift off 2/what is.webp",
+    url: "/lift-off-2",
+    tags: ["casual", "action"],
+    publishedAt: "2026-04-15",
   },
 };
 
@@ -88,8 +118,8 @@ export function getOtherGames(): Game[] {
 }
 
 export function getGamesByCategory(category: string): Game[] {
-  if (category === "new") return Object.values(games).filter(g => g.isNew);
-  if (category === "hot") return Object.values(games).filter(g => g.isHot);
+  if (category === "new") return Object.values(games).filter(g => getGameBadge(g) === "NEW");
+  if (category === "hot") return Object.values(games).filter(g => getGameBadge(g) === "HOT");
   return Object.values(games).filter(g => g.tags.includes(category));
 }
 

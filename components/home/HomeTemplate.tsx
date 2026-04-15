@@ -9,11 +9,20 @@ import { FAQ } from "@/components/faq/FAQ";
 import { Rating } from "@/components/rating/Rating";
 import { Footer } from "@/components/layout/Footer";
 import { CategorySidebar } from "@/components/layout/CategorySidebar";
-import { getOtherGames, Game } from "@/app/games/game-data";
+import { getOtherGames, getGameBadge, Game } from "@/app/games/game-data";
 import { content } from "@/config/content";
 import Link from "next/link";
 
+const BELOW_IFRAME_SLOTS = 15;
+
+const BADGE_STYLES = {
+  NEW: "bg-purple-500 text-white",
+  HOT: "bg-orange-500 text-white",
+};
+
+/** Right sidebar card — thumbnail only, no title, 2-col */
 function SidebarGameCard({ game }: { game: Game }) {
+  const badge = getGameBadge(game);
   return (
     <Link
       href={game.url}
@@ -28,19 +37,42 @@ function SidebarGameCard({ game }: { game: Game }) {
           loading="lazy"
         />
       </div>
-      {game.isNew && (
-        <span className="absolute top-1 left-1 bg-purple-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">NEW</span>
+      {badge && (
+        <span className={`absolute top-1 left-1 text-[10px] font-bold px-1.5 py-0.5 rounded ${BADGE_STYLES[badge]}`}>
+          {badge}
+        </span>
       )}
-      {game.isHot && (
-        <span className="absolute top-1 left-1 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">HOT</span>
-      )}
-      <div className="px-2 py-1.5">
-        <p className="text-xs font-semibold text-foreground truncate leading-tight">{game.title}</p>
-      </div>
     </Link>
   );
 }
 
+/** Below-iframe grid card — thumbnail + badge, no title */
+function GridGameCard({ game }: { game: Game }) {
+  const badge = getGameBadge(game);
+  return (
+    <Link
+      href={game.url}
+      className="group block rounded-lg overflow-hidden border border-border hover:border-primary transition-colors duration-200 bg-card relative"
+      aria-label={`Play ${game.title}`}
+    >
+      <div className="aspect-video w-full overflow-hidden bg-muted">
+        <img
+          src={game.image}
+          alt={game.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          loading="lazy"
+        />
+      </div>
+      {badge && (
+        <span className={`absolute top-1 left-1 text-[10px] font-bold px-1.5 py-0.5 rounded ${BADGE_STYLES[badge]}`}>
+          {badge}
+        </span>
+      )}
+    </Link>
+  );
+}
+
+/** Mobile card — thumbnail + title */
 function MobileGameCard({ game }: { game: Game }) {
   return (
     <Link
@@ -57,9 +89,7 @@ function MobileGameCard({ game }: { game: Game }) {
         />
       </div>
       <div className="px-1.5 py-1">
-        <p className="text-xs font-semibold text-foreground truncate leading-tight">
-          {game.title}
-        </p>
+        <p className="text-xs font-semibold text-foreground truncate leading-tight">{game.title}</p>
       </div>
     </Link>
   );
@@ -70,6 +100,10 @@ export function HomeTemplate() {
 
   const allGames = getOtherGames().filter((g) => g.id !== "wacky-steps");
   const tags: string[] = (content as any).tags ?? [];
+
+  // Below-iframe: up to BELOW_IFRAME_SLOTS, padded with nulls for empty slots
+  const belowGames = allGames.slice(0, BELOW_IFRAME_SLOTS);
+  const emptySlots = BELOW_IFRAME_SLOTS - belowGames.length;
 
   return (
     <div className="min-h-screen bg-background">
@@ -88,34 +122,44 @@ export function HomeTemplate() {
           </nav>
         )}
 
-        {/* H1 + description — hidden in theater mode */}
+        {/* H1 + description */}
         {!theaterMode && (
           <>
-            <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">
-              Wacky Steps
-            </h1>
+            <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">Wacky Steps</h1>
             <p className="text-center text-muted-foreground mb-3 text-sm">
               A free browser ragdoll walking game — avoid sidewalk cracks, survive every step, and walk as far as you can.
             </p>
           </>
         )}
 
-        {/* ── Desktop: 3-col layout ── */}
+        {/* ── Desktop: iframe + right sidebar ── */}
         <div className="flex gap-3 items-start">
-          {/* Left: category sidebar */}
           {!theaterMode && <CategorySidebar />}
 
-          {/* Center: game iframe */}
+          {/* Center: iframe */}
           <div className="flex-1 min-w-0">
-            <GameSection
-              theaterMode={theaterMode}
-              onTheaterModeChange={setTheaterMode}
-            />
+            <GameSection theaterMode={theaterMode} onTheaterModeChange={setTheaterMode} />
+
+            {/* ── Below-iframe game grid (desktop) ── */}
+            {!theaterMode && (
+              <div className="hidden lg:grid grid-cols-5 gap-2 mt-3">
+                {belowGames.map((game) => (
+                  <GridGameCard key={game.id} game={game} />
+                ))}
+                {/* Empty placeholder slots */}
+                {Array.from({ length: emptySlots }).map((_, i) => (
+                  <div
+                    key={`empty-${i}`}
+                    className="aspect-video rounded-lg bg-muted border border-dashed border-border opacity-40"
+                  />
+                ))}
+              </div>
+            )}
           </div>
 
-          {/* Right: all games 2-col grid, no titles */}
+          {/* Right: 2-col thumbnail grid, no titles */}
           {!theaterMode && (
-            <aside className="hidden xl:flex xl:flex-col gap-2 w-[200px] flex-shrink-0 self-start">
+            <aside className="hidden xl:grid grid-cols-2 gap-2 w-[300px] flex-shrink-0 self-start">
               {allGames.map((game) => (
                 <SidebarGameCard key={game.id} game={game} />
               ))}
@@ -123,7 +167,7 @@ export function HomeTemplate() {
           )}
         </div>
 
-        {/* ── Mobile: game grid — hidden in theater mode ── */}
+        {/* ── Mobile: game grid ── */}
         {!theaterMode && (
           <div className="lg:hidden grid grid-cols-3 sm:grid-cols-4 gap-2 mb-6 mt-4">
             {allGames.map((game) => (
@@ -132,16 +176,13 @@ export function HomeTemplate() {
           </div>
         )}
 
-        {/* Content sections — hidden in theater mode */}
+        {/* Content sections */}
         {!theaterMode && (
           <>
             {tags.length > 0 && (
               <div className="flex flex-wrap gap-2 mb-8 mt-2">
                 {tags.map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium uppercase tracking-wide border border-border"
-                  >
+                  <span key={tag} className="px-3 py-1 bg-muted text-muted-foreground rounded-full text-xs font-medium uppercase tracking-wide border border-border">
                     {tag}
                   </span>
                 ))}
@@ -158,7 +199,6 @@ export function HomeTemplate() {
         )}
 
       </main>
-
       <Footer />
     </div>
   );
