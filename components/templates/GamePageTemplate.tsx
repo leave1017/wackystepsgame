@@ -11,6 +11,8 @@ import { Footer } from "@/components/layout/Footer";
 import { getOtherGames, getGameBadge, Game } from "@/app/games/game-data";
 import { CategorySidebar } from "@/components/layout/CategorySidebar";
 import Link from "next/link";
+import { AdBanner320x50 } from "@/components/ads/AdBanner320x50";
+import { NativeBannerAd } from "@/components/ads/NativeBannerAd";
 
 const BELOW_IFRAME_SLOTS = 15;
 
@@ -169,6 +171,9 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
           </div>
         )}
 
+        {/* Banner ad — below game grid, above content */}
+        {!theaterMode && <AdBanner320x50 />}
+
         {/* Content sections */}
         {!theaterMode && (
           <>
@@ -185,6 +190,7 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
                 ))}
               </div>
             )}
+            <NativeBannerAd />
             <FAQ content={gameConfig.content} />
           </>
         )}
