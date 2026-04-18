@@ -39,6 +39,8 @@ export const content = {
       links: [
         { text: "Wacky Steps", href: "/" },
         { text: "Goo Goo Gaga Clicker", href: "/goo-goo-gaga-clicker" },
+        { text: "Sprunki", href: "/sprunki" },
+        { text: "Trees Hate You", href: "/trees-hate-you" },
         { text: "Crazy Cattle 3D", href: "https://crazycattle3d.io" },
       ]
     },

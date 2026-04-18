@@ -111,6 +111,26 @@ export const games: Record<string, Game> = {
     tags: ["casual", "action"],
     publishedAt: "2026-04-15",
   },
+  "sprunki": {
+    id: "sprunki",
+    title: "Sprunki",
+    description: "Mix sounds, layer animated characters, and compose original music tracks in this free Incredibox-inspired browser game. No download needed!",
+    image: "/assets/sprunki/what is.webp",
+    url: "/sprunki",
+    tags: ["music", "casual"],
+    publishedAt: "2026-04-18",
+    isHot: true,
+  },
+  "trees-hate-you": {
+    id: "trees-hate-you",
+    title: "Trees Hate You",
+    description: "Survive waves of angry trees closing in from all sides in this fast-paced free online survival game. No download, play instantly in your browser!",
+    image: "/assets/trees hate you/what is.webp",
+    url: "/trees-hate-you",
+    tags: ["action", "casual"],
+    publishedAt: "2026-04-18",
+    isHot: true,
+  },
 };
 
 export function getOtherGames(): Game[] {

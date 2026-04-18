@@ -80,11 +80,6 @@ export default function CategoryPage({
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         loading="lazy"
                       />
-                      {game.isNew && (
-                        <span className="absolute top-1.5 left-1.5 bg-purple-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
-                          NEW
-                        </span>
-                      )}
                       {game.isHot && (
                         <span className="absolute top-1.5 left-1.5 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded">
                           HOT
