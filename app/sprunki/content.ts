@@ -47,7 +47,7 @@ export const sprunkiContent = {
       "Play Sprunki free online — no login, no download, works on any browser. Whether you're crafting a beat to share with friends or simply experimenting for fun, Sprunki turns music creation into a game anyone can enjoy.",
     logo: {
       src: "/assets/sprunki/what is.webp",
-      alt: ""
+      alt: "Sprunki – Free Online Music Creation Game Inspired by Incredibox"
     }
   },
 
@@ -60,7 +60,7 @@ export const sprunkiContent = {
       "**Discover Hidden Bonus Combinations:** Certain character pairings unlock secret bonus content — special animations play, new sounds emerge, and the visual stage transforms. There's no in-game hint for which combinations trigger these effects, so try unusual pairings and pay attention to what happens. The community has documented many known triggers if you want a head start.\n\n" +
       "**Share Your Creation:** Once you've built a track you love, you can record and share it. Sprunki's sharing features let you export or link to your composition so friends can hear what you made — or use it as a starting point for their own remix.",
     image: "/assets/sprunki/how to.webp",
-    imageAlt: ""
+    imageAlt: "Sprunki How to Play Guide – Drag and Drop Music Creation Browser Game"
   },
 
   faq: {

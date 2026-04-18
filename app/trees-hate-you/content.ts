@@ -47,7 +47,7 @@ export const treesHateYouContent = {
       "Play Trees Hate You free online — no download, no login, works on any browser. Survive the forest as long as you can and see how far your reflexes will carry you.",
     logo: {
       src: "/assets/trees hate you/what is.webp",
-      alt: ""
+      alt: "Trees Hate You – Free Online Survival Browser Game"
     }
   },
 
@@ -60,7 +60,7 @@ export const treesHateYouContent = {
       "**Manage Your Space:** Avoid backing yourself into corners or edges of the play area. When you're cornered, your movement options drop to near zero, and recovery is very difficult. Always be aware of your position relative to the boundaries and prefer staying in open central space where you have options in all directions.\n\n" +
       "**Stay Calm Under Pressure:** Trees Hate You is designed to spike your stress levels as waves intensify. Panicking leads to erratic movement and poor decisions. The players who last longest tend to keep their movement deliberate and controlled even when the trees are very close — trust your reads and don't overcorrect.",
     image: "/assets/trees hate you/how to.webp",
-    imageAlt: ""
+    imageAlt: "Trees Hate You How to Play Guide – Survive Waves of Angry Trees Online"
   },
 
   faq: {
