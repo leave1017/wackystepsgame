@@ -124,22 +124,21 @@ export function HomeTemplate() {
           </nav>
         )}
 
-        {/* H1 + description */}
-        {!theaterMode && (
-          <>
-            <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">Wacky Steps</h1>
-            <p className="text-center text-muted-foreground mb-3 text-sm">
-              A free browser ragdoll walking game — avoid sidewalk cracks, survive every step, and walk as far as you can.
-            </p>
-          </>
-        )}
-
         {/* ── Desktop: iframe + right sidebar ── */}
         <div className="flex gap-3 items-start">
           {!theaterMode && <CategorySidebar />}
 
           {/* Center: iframe */}
           <div className="flex-1 min-w-0">
+            {/* H1 + description — aligned to iframe column */}
+            {!theaterMode && (
+              <>
+                <h1 className="text-2xl md:text-3xl font-bold text-center mb-1">Wacky Steps</h1>
+                <p className="text-center text-muted-foreground mb-3 text-sm">
+                  A free browser ragdoll walking game — avoid sidewalk cracks, survive every step, and walk as far as you can.
+                </p>
+              </>
+            )}
             <GameSection theaterMode={theaterMode} onTheaterModeChange={setTheaterMode} />
 
             {/* ── Below-iframe game grid (desktop) ── */}

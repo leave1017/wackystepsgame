@@ -121,17 +121,16 @@ export function GamePageTemplate({ gameConfig }: GamePageTemplateProps) {
           </nav>
         )}
 
-        {/* H1 */}
-        {!theaterMode && (
-          <h1 className="text-2xl md:text-3xl font-bold text-center mb-3">{gameTitle}</h1>
-        )}
-
         {/* ── Desktop layout ── */}
         <div className="flex gap-3 items-start">
           {!theaterMode && <CategorySidebar />}
 
           {/* Center: iframe + below-iframe grid */}
           <div className="flex-1 min-w-0">
+            {/* H1 — aligned to iframe column */}
+            {!theaterMode && (
+              <h1 className="text-2xl md:text-3xl font-bold text-center mb-3">{gameTitle}</h1>
+            )}
             <GameSection
               content={gameConfig.content}
               theaterMode={theaterMode}
