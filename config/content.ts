@@ -80,9 +80,9 @@ export const content = {
   gameSection: {
     title: "Wacky Steps",
     game: {
-      url: 'https://azgames.io/wacky-steps.embed',
+      url: 'https://www.miniplay.com/embed/wacky-steps',
       title: "wacky-steps",
-      externalUrl: 'https://azgames.io/wacky-steps.embed'
+      externalUrl: 'https://www.miniplay.com/embed/wacky-steps'
     }
   },
   otherGames: {
