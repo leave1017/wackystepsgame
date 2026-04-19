@@ -11,6 +11,14 @@ const gamePages = [
   '/brainrot-clicker',
   '/basketball-bros-unblocked',
   '/goo-goo-gaga-clicker',
+  '/horse-magnifier',
+  '/red-face-horror',
+  '/office-fury',
+  '/astro-tycoon',
+  '/stick-hero-rpg',
+  '/lift-off-2',
+  '/sprunki',
+  '/trees-hate-you',
 ];
 
 /** @type {import('next-sitemap').IConfig} */
@@ -38,6 +46,10 @@ module.exports = {
     // Homepage
     if (path === '/') {
       return { loc: path, changefreq: 'daily', priority: 1.0, lastmod: new Date().toISOString(), alternateRefs: [] };
+    }
+    // Game inner pages
+    if (gamePages.includes(path)) {
+      return { loc: path, changefreq: 'weekly', priority: 0.9, lastmod: new Date().toISOString(), alternateRefs: [] };
     }
     // Hot Games listing
     if (path === '/games') {
